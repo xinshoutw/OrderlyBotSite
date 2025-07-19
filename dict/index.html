@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orderly Bot - Legal Documents</title>
+    <link rel="icon" type="image/x-icon" href="icon.ico">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5865F2;
+            --secondary-color: #4752C4;
+            --text-dark: #23272A;
+            --text-light: #72767D;
+            --background: #FFFFFF;
+            --card-background: #F8F9FA;
+            --border-color: #E3E5E8;
+            --hover-color: #F2F3F5;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --border-radius: 12px;
+            --header-background: rgba(248, 249, 250, 0.95);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 2.5;
+            color: var(--text-dark);
+            background: var(--background);
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--background);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: var(--header-background);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(227, 229, 232, 0.5);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--primary-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--primary-color);
+            background: var(--hover-color);
+        }
+
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .language-button:hover {
+            background: var(--hover-color);
+        }
+
+        .globe-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--background);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            min-width: 120px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .language-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: block;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: none;
+            background: none;
+            text-align: left;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .language-option:hover {
+            background: var(--hover-color);
+        }
+
+        .language-option:first-child {
+            border-radius: 8px 8px 0 0;
+        }
+
+        .language-option:last-child {
+            border-radius: 0 0 8px 8px;
+        }
+
+        .language-option.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #5865F2 0%, #4752C4 100%);
+            color: white;
+            position: relative;
+        }
+
+        .hero-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-icon img {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 4rem 0;
+            min-height: 60vh;
+        }
+
+        .page-content {
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .page-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .page-content h3 {
+            color: var(--text-dark);
+            margin: 2rem 0 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .page-content h4 {
+            color: var(--text-dark);
+            margin: 1.5rem 0 0.75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .page-content p {
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        .page-content ul {
+            margin: 1rem 0 1rem 1.5rem;
+        }
+
+        .page-content li {
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .page-content strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .page-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .page-content a:hover {
+            text-decoration: underline;
+        }
+
+        .effective-date {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .last-modified {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-left: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-divider {
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            margin: 3rem 0;
+            border-radius: 1px;
+        }
+
+        .chinese-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .chinese-section h2 {
+            color: var(--secondary-color);
+        }
+
+        footer {
+            background: var(--card-background);
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            color: var(--text-light);
+        }
+
+        .footer-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-content a:hover {
+            text-decoration: underline;
+        }
+
+        .home-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: var(--card-background);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .card a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .card a:hover {
+            color: var(--secondary-color);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .lang-en .zh-content,
+        .lang-zh .en-content {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .page-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .nav-right {
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .logo-container {
+                gap: 0.5rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* DarkReader compatibility */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #36393F;
+                --card-background: #2F3136;
+                --text-dark: #DCDDDE;
+                --text-light: #B9BBBE;
+                --border-color: #40444B;
+                --hover-color: #40444B;
+                --header-background: rgba(47, 49, 54, 0.95);
+            }
+        }
+    </style>
+</head>
+<body class="lang-en">
+<header id="header">
+    <nav class="container">
+        <div class="logo-container">
+            <div class="logo-icon">
+                <img src="bot-avatar.png" alt="Bot Avatar" style="width: 100%; height: 100%; border-radius: 6px;"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <span style="display: none;">O</span>
+            </div>
+            <a href="#" class="logo" onclick="showHome()">Orderly Bot</a>
+        </div>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="#" id="home-link" class="active" onclick="showHome()">
+                    <span class="en-content">Home</span>
+                    <span class="zh-content">首頁</span>
+                </a></li>
+                <li><a href="#" id="tos-link" onclick="showTerms()">
+                    <span class="en-content">Terms of Service</span>
+                    <span class="zh-content">服務條款</span>
+                </a></li>
+                <li><a href="#" id="privacy-link" onclick="showPrivacy()">
+                    <span class="en-content">Privacy Policy</span>
+                    <span class="zh-content">隱私政策</span>
+                </a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="language-button" onclick="toggleLanguageDropdown()">
+                    <svg class="globe-icon" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zM4.332 8.027a6.012 6.012 0 011.912-2.706C6.512 5.73 6.974 6 7.5 6A1.5 1.5 0 019 7.5V8a2 2 0 004 0 2 2 0 011.523-1.943A5.977 5.977 0 0116 10c0 .34-.028.675-.083 1H15a2 2 0 00-2 2v2.197A5.973 5.973 0 0110 16v-2a2 2 0 00-2-2 2 2 0 01-2-2 2 2 0 00-1.668-1.973z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span id="current-lang">EN</span>
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <button class="language-option active" onclick="setLanguage('en')">English</button>
+                    <button class="language-option" onclick="setLanguage('zh')">繁體中文</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Home Page -->
+<div id="home-page">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon">
+                <img src="bot-avatar.png" alt="Orderly Bot Avatar"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color: white; font-size: 2rem; font-weight: bold;\'>O</div>';">
+            </div>
+            <h1>
+                <span class="en-content">Orderly Bot</span>
+                <span class="zh-content">序之徒機器人</span>
+            </h1>
+            <p>
+                <span class="en-content">Advanced Discord bot with powerful features for server management, music, and more</span>
+                <span class="zh-content">功能強大的 Discord 機器人，提供伺服器管理、音樂播放等多種功能</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="home-cards">
+                <div class="card">
+                    <h3>
+                        <span class="en-content">Terms of Service</span>
+                        <span class="zh-content">服務條款</span>
+                    </h3>
+                    <p>
+                        <span class="en-content">Review our terms and conditions for using Orderly Bot and Orderly Bot Dev in your Discord server.</span>
+                        <span class="zh-content">查看在您的 Discord 伺服器中使用 Orderly Bot 和 Orderly Bot Dev 的條款和條件。</span>
+                    </p>
+                    <a href="#" onclick="showTerms()">
+                        <span class="en-content">Read Terms →</span>
+                        <span class="zh-content">閱讀條款 →</span>
+                    </a>
+                </div>
+                <div class="card">
+                    <h3>
+                        <span class="en-content">Privacy Policy</span>
+                        <span class="zh-content">隱私政策</span>
+                    </h3>
+                    <p>
+                        <span class="en-content">Learn about how we collect, use, and protect your data when interacting with our Discord bots.</span>
+                        <span class="zh-content">了解我們在與 Discord 機器人互動時如何收集、使用和保護您的資料。</span>
+                    </p>
+                    <a href="#" onclick="showPrivacy()">
+                        <span class="en-content">Read Policy →</span>
+                        <span class="zh-content">閱讀政策 →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Terms of Service Page -->
+<div id="tos-page" class="hidden">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon">
+                <img src="bot-avatar.png" alt="Orderly Bot Avatar"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color: white; font-size: 2rem; font-weight: bold;\'>O</div>';">
+            </div>
+            <h1>
+                <span class="en-content">Terms of Service</span>
+                <span class="zh-content">服務條款</span>
+            </h1>
+            <p>
+                <span class="en-content">Legal terms and conditions for using Orderly Bot services</span>
+                <span class="zh-content">使用 Orderly Bot 服務的法律條款和條件</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="page-content">
+                <!-- English Content -->
+                <div class="en-content">
+                    <div class="effective-date">Effective Date: 2025-07-19</div>
+                    <div class="last-modified">Last Modified: 2025-07-19</div>
+
+                    <p>This Terms of Service Agreement ("Agreement") governs your use of the Discord bots <strong>Orderly
+                        Bot</strong> and <strong>Orderly Bot Dev</strong> (collectively, "the Bot"), developed and
+                        operated by <strong>原之序 | ORDERLY SERVER</strong> ("the Developer," "we," "us," or "our").
+                    </p>
+
+                    <p>By inviting or using the Bot in your Discord server, you ("the User," "you") agree to be bound by
+                        this Agreement and our Privacy Policy. If you do not agree to these terms, you must not use the
+                        Bot.</p>
+
+                    <h3>1. License and Use</h3>
+                    <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the Bot for
+                        personal, non-commercial purposes within the Discord platform, subject to this Agreement.</p>
+
+                    <h3>2. Prohibited Conduct</h3>
+                    <p>You agree not to use the Bot to:</p>
+                    <ul>
+                        <li>Engage in malicious command spamming, intentionally causing lag, or attempting to crash the
+                            Bot.
+                        </li>
+                        <li>Exploit any bugs, vulnerabilities, or loopholes in the Bot.</li>
+                        <li>Conduct or promote any illegal activities, including but not limited to fraud, scams, or
+                            distributing malicious software.
+                        </li>
+                        <li>Transmit or display content that is hateful, harassing, discriminatory, defamatory, or
+                            otherwise objectionable.
+                        </li>
+                        <li>Infringe upon the intellectual property or copyright of others (e.g., using the music
+                            features to distribute copyrighted material without a license).
+                        </li>
+                        <li>Automate responses or actions directed at the Bot (i.e., using another bot to interact with
+                            our Bot).
+                        </li>
+                        <li>Promote commercial services or advertisements without our prior written consent.</li>
+                    </ul>
+
+                    <h3>3. Premium Features</h3>
+                    <p>The Bot may offer paid or "Premium" features. Access to these features is granted as a service.
+                        You are strictly prohibited from reselling, sharing, trading, or otherwise misusing Premium
+                        activation codes or permissions. A breach of this term will result in the immediate termination
+                        of your Premium access without a refund and may lead to a permanent ban from using the Bot.</p>
+
+                    <h3>4. Bot Functionality & Addons</h3>
+                    <p>The Bot operates on a core/addon model. Some features, particularly those provided through custom
+                        addons or for demonstration purposes, require enabling privileged Gateway Intents on Discord,
+                        including:</p>
+                    <ul>
+                        <li><strong>Message Content Intent:</strong> To read message content for features like
+                            moderation (e.g., hate speech warnings) and command processing.
+                        </li>
+                        <li><strong>Server Members Intent:</strong> To access the server's member list for statistical
+                            analysis and user-specific commands.
+                        </li>
+                        <li><strong>Presence Intent:</strong> To view member activities (e.g., "Playing Minecraft") for
+                            statistical and engagement features.
+                        </li>
+                    </ul>
+                    <p>Your use of features that rely on these intents constitutes your consent for the Bot to access
+                        this information as described in our Privacy Policy.</p>
+
+                    <h3>5. Developer's Rights</h3>
+                    <ul>
+                        <li>We reserve the right to modify, suspend, or discontinue the Bot, or any of its features, at
+                            any time with or without notice.
+                        </li>
+                        <li>We reserve the right to update this Agreement at any time. We will provide notice of
+                            significant changes in our official support server. Continued use of the Bot after such
+                            changes constitutes your acceptance of the new terms.
+                        </li>
+                        <li>We reserve the absolute right to terminate your access to the Bot, or ban any user or server
+                            from using the Bot, for any reason, at our sole discretion.
+                        </li>
+                    </ul>
+
+                    <h3>6. Disclaimer of Liability</h3>
+                    <p>THE BOT IS PROVIDED "AS IS." WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING ANY
+                        WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. WE ARE
+                        NOT LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT
+                        LIMITED TO DATA LOSS, SERVER DAMAGE, OR LOSS OF PROFITS) ARISING FROM THE USE OR INABILITY TO
+                        USE THE BOT.</p>
+
+                    <h3>7. Governing Law</h3>
+                    <p>This Agreement shall be governed by and construed in accordance with the laws of
+                        <strong>Taiwan</strong>.</p>
+
+                    <h3>8. Contact Information</h3>
+                    <p>For any questions or concerns regarding this Agreement, please contact the lead developer at
+                        <strong>me@xinshou.tw</strong> or open a ticket in our official support server: <a
+                                href="https://dc.xinshou.tw/" target="_blank">https://dc.xinshou.tw/</a>.</p>
+                </div>
+
+                <!-- Chinese Content -->
+                <div class="zh-content">
+                    <div class="effective-date">生效日期：2025年07月19日</div>
+                    <div class="last-modified">最後修改：2025年07月19日</div>
+
+                    <p>本服務條款協議（以下稱「本協議」）規範您對 Discord 機器人 <strong>序之徒 Orderly Bot</strong> 及
+                        <strong>序之徙 Orderly Bot Dev</strong>（以下合稱「本機器人」）的使用。本機器人由 <strong>原之序 |
+                            ORDERLY SERVER</strong>（以下稱「開發者」、「我們」）開發與營運。</p>
+
+                    <p>藉由邀請或在您的 Discord
+                        伺服器中使用本機器人，即表示您（以下稱「使用者」、「您」）同意接受本協議及我們的隱私權政策之約束。若您不同意這些條款，請立即停止使用本機器人。</p>
+
+                    <h3>1. 授權與使用</h3>
+                    <p>我們授予您一項有限、非專屬、不可轉讓、可撤銷的授權，允許您在遵守本協議的前提下，於 Discord
+                        平台內為個人、非商業目的使用本機器人。</p>
+
+                    <h3>2. 禁止行為</h3>
+                    <p>您同意不利用本機器人從事以下行為：</p>
+                    <ul>
+                        <li>惡意濫用指令（洗頻）、故意造成延遲或試圖使本機器人崩潰。</li>
+                        <li>利用本機器人的任何錯誤 (bug)、漏洞或缺陷。</li>
+                        <li>進行或推廣任何非法活動，包括但不限於詐騙或散播惡意軟體。</li>
+                        <li>傳輸或顯示仇恨、騷擾、歧視、誹謗或其他令人反感的內容。</li>
+                        <li>侵害他人的智慧財產權或版權（例如：使用音樂功能在未經授權的情況下散播受版權保護的材料）。</li>
+                        <li>對本機器人進行自動化操作（即使用另一個機器人與本機器人互動）。</li>
+                        <li>未經我們事先書面同意，推廣商業服務或廣告。</li>
+                    </ul>
+
+                    <h3>3. 付費功能 (Premium)</h3>
+                    <p>本機器人可能提供付費或「Premium」功能。此類功能的存取權係作為一種服務授予。您被嚴格禁止轉售、分享、交易或以其他方式濫用
+                        Premium 啟用碼或權限。違反此條款將導致您的 Premium
+                        存取權被立即終止且不予退款，並可能導致您被永久禁止使用本機器人。</p>
+
+                    <h3>4. 機器人功能與附加元件 (Addons)</h3>
+                    <p>本機器人採用核心 (core) 與附加元件 (addons) 的模式運作。部分功能，特別是透過客製化附加元件或為演示目的而提供的功能，需要在
+                        Discord 上啟用特權網關意圖 (Privileged Gateway Intents)，包括：</p>
+                    <ul>
+                        <li><strong>訊息內容意圖 (Message Content Intent):</strong>
+                            用於讀取訊息內容，以提供諸如內容審核（例如：仇恨言論警告）和指令處理等功能。
+                        </li>
+                        <li><strong>伺服器成員意圖 (Server Members Intent):</strong> 用於存取伺服器成員列表，以進行數據統計和針對特定使用者的指令。
+                        </li>
+                        <li><strong>狀態意圖 (Presence Intent):</strong> 用於查看成員的活動狀態（例如：「正在玩
+                            Minecraft」），以提供統計和互動功能。
+                        </li>
+                    </ul>
+                    <p>您對依賴這些意圖功能的使用，即表示您同意本機器人根據我們的隱私權政策存取這些資訊。</p>
+
+                    <h3>5. 開發者權利</h3>
+                    <ul>
+                        <li>我們保留隨時修改、暫停或終止本機器人或其任何功能的權利，無論是否另行通知。</li>
+                        <li>
+                            我們保留隨時更新本協議的權利。若有重大變更，我們將在官方支援伺服器中發布通知。在變更後繼續使用本機器人，即表示您接受新條款。
+                        </li>
+                        <li>
+                            我們保留基於任何理由，全權酌情決定終止您對本機器人的存取權，或禁止任何使用者或伺服器使用本機器人的絕對權利。
+                        </li>
+                    </ul>
+
+                    <h3>6. 免責聲明</h3>
+                    <p>
+                        本機器人以「現狀」提供。我們不提供任何明示或默示的保證，包括但不限於適銷性、特定用途適用性及無侵權的保證。我們不對因使用或無法使用本機器人而導致的任何直接、間接、附帶或衍生的損害（包括但不限於資料遺失、伺服器損壞或利潤損失）承擔任何責任。</p>
+
+                    <h3>7. 管轄法律</h3>
+                    <p>本協議應受<strong>臺灣</strong>法律管轄，並據其解釋。</p>
+
+                    <h3>8. 聯絡資訊</h3>
+                    <p>若對本協議有任何疑問或疑慮，請透過電子郵件 <strong>me@xinshou.tw</strong>
+                        聯繫主要開發者，或在我們的官方支援伺服器中開啟客服單 (Ticket)。</p>
+                    <p><strong>支援伺服器：<a href="https://dc.xinshou.tw/"
+                                             target="_blank">https://dc.xinshou.tw/</a></strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Privacy Policy Page -->
+<div id="privacy-page" class="hidden">
+    <section class="hero">
+        <div class="container">
+            <div class="hero-icon">
+                <img src="bot-avatar.png" alt="Orderly Bot Avatar"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'color: white; font-size: 2rem; font-weight: bold;\'>O</div>';">
+            </div>
+            <h1>
+                <span class="en-content">Privacy Policy</span>
+                <span class="zh-content">隱私政策</span>
+            </h1>
+            <p>
+                <span class="en-content">How we collect, use, and protect your information</span>
+                <span class="zh-content">我們如何收集、使用和保護您的資訊</span>
+            </p>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="container">
+            <div class="page-content">
+                <!-- English Content -->
+                <div class="en-content">
+                    <div class="effective-date">Effective Date: 2025-07-19</div>
+                    <div class="last-modified">Last Modified: 2025-07-19</div>
+
+                    <p>This Privacy Policy describes how <strong>原之序 | ORDERLY SERVER</strong> ("the Developer,"
+                        "we," "us," or "our") collects, uses, and protects your information when you interact with
+                        <strong>Orderly Bot</strong> and <strong>Orderly Bot Dev</strong> ("the Bot").</p>
+
+                    <h3>1. Information We Collect</h3>
+                    <p>To provide and improve our services, we collect and store the following information:</p>
+
+                    <h4>User Information:</h4>
+                    <ul>
+                        <li>Your Discord User ID</li>
+                        <li>Your Discord Username and Server Nickname</li>
+                    </ul>
+
+                    <h4>Server Information:</h4>
+                    <ul>
+                        <li>Server ID and Server Name</li>
+                        <li>Channel ID and Channel Name</li>
+                    </ul>
+
+                    <h4>Activity and Content Information:</h4>
+                    <ul>
+                        <li><strong>Message Content:</strong> We collect the content of messages to process commands and
+                            provide features like moderation (e.g., hate speech warnings).
+                        </li>
+                        <li><strong>Usage Data:</strong> We log which commands are used, by whom, and when, for
+                            analytics and troubleshooting.
+                        </li>
+                        <li><strong>Voice Information:</strong> We collect data on which users are present in a voice
+                            channel to operate voice-related features like music playback. We <strong>do not</strong>
+                            record or store audio from voice channels.
+                        </li>
+                        <li><strong>Presence Information:</strong> We collect user status information (e.g., "Playing
+                            Minecraft," "Streaming on Twitch") to provide server statistics and engagement features.
+                        </li>
+                    </ul>
+
+                    <h3>2. How We Use Your Information</h3>
+                    <p>We use the collected information for the following purposes:</p>
+                    <ul>
+                        <li><strong>To Provide Core Functionality:</strong> To deliver the Bot's services, such as
+                            responding to commands, playing music, or managing server roles.
+                        </li>
+                        <li><strong>To Improve and Optimize the Bot:</strong> To analyze usage patterns, identify
+                            popular features, and enhance performance.
+                        </li>
+                        <li><strong>To Provide Support:</strong> To troubleshoot issues and respond to your inquiries.
+                        </li>
+                        <li><strong>To Develop New Features:</strong> To understand user needs and create new, relevant
+                            functionalities.
+                        </li>
+                        <li><strong>To Comply with Legal Obligations:</strong> To enforce our terms and maintain a safe
+                            environment.
+                        </li>
+                    </ul>
+
+                    <h3>3. Data Sharing</h3>
+                    <p>We do not sell, rent, or share your personal information with third parties. We may only disclose
+                        your information if required to do so by law or in response to a valid legal process from a
+                        competent authority.</p>
+
+                    <h3>4. Data Retention</h3>
+                    <p>We retain your data for a maximum period of <strong>one (1) year</strong>. Data will be deleted
+                        sooner under the following conditions:</p>
+                    <ul>
+                        <li>The Bot is removed from your server.</li>
+                        <li>We receive a valid deletion request from a user (for their personal data) or a server
+                            administrator (for server-wide data).
+                        </li>
+                    </ul>
+
+                    <h3>5. Your Rights</h3>
+                    <p>You have the right to access and request the deletion of your personal data that we have
+                        collected.</p>
+
+                    <h3>6. How to Exercise Your Rights</h3>
+                    <p>To request access to or deletion of your data, please join our official support server and
+                        <strong>open a support ticket</strong>. Our team will guide you through the process.</p>
+                    <p><strong>Support Server:</strong> <a href="https://dc.xinshou.tw/" target="_blank">https://dc.xinshou.tw/</a>
+                    </p>
+
+                    <h3>7. Data Security</h3>
+                    <p>We implement reasonable security measures to protect your information from unauthorized access,
+                        alteration, or destruction. However, no method of transmission over the Internet or electronic
+                        storage is 100% secure, and we cannot guarantee its absolute security.</p>
+
+                    <h3>8. Changes to This Policy</h3>
+                    <p>We may update this Privacy Policy from time to time. We will notify you of any significant
+                        changes by posting an announcement in our support server.</p>
+
+                    <h3>9. Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, please contact us at
+                        <strong>me@xinshou.tw</strong> or open a ticket in our support server.</p>
+                </div>
+
+                <!-- Chinese Content -->
+                <div class="zh-content">
+                    <div class="effective-date">生效日期：2025年07月19日</div>
+                    <div class="last-modified">最後修改：2025年07月19日</div>
+
+                    <p>本隱私權政策說明 <strong>原之序 | ORDERLY SERVER</strong>（以下稱「開發者」、「我們」）在您與 <strong>序之徒
+                        Orderly Bot</strong> 及 <strong>序之徙 Orderly Bot Dev</strong>（以下合稱「本機器人」）互動時，如何收集、使用和保護您的資訊。
+                    </p>
+
+                    <h3>1. 我們收集的資訊</h3>
+                    <p>為了提供並改善我們的服務，我們收集並儲存以下資訊：</p>
+
+                    <h4>使用者資訊：</h4>
+                    <ul>
+                        <li>您的 Discord 使用者 ID (User ID)</li>
+                        <li>您的 Discord 使用者名稱及伺服器暱稱</li>
+                    </ul>
+
+                    <h4>伺服器資訊：</h4>
+                    <ul>
+                        <li>伺服器 ID 及伺服器名稱</li>
+                        <li>頻道 ID 及頻道名稱</li>
+                    </ul>
+
+                    <h4>活動與內容資訊：</h4>
+                    <ul>
+                        <li><strong>訊息內容 (Message Content):</strong> 我們收集訊息內容以處理指令並提供如內容審核（例如：仇恨言論警告）等功能。
+                        </li>
+                        <li><strong>使用數據 (Usage Data):</strong> 我們會記錄誰在何時使用了哪個指令，用於數據分析和問題排查。
+                        </li>
+                        <li><strong>語音資訊 (Voice Information):</strong> 我們收集哪些使用者正在語音頻道中的資訊，以運行如音樂播放等語音相關功能。我們<strong>不會</strong>錄製或儲存語音頻道中的任何音訊。
+                        </li>
+                        <li><strong>狀態資訊 (Presence Information):</strong> 我們收集使用者的狀態資訊（例如：「正在玩
+                            Minecraft」、「正在 Twitch 直播」），以提供伺服器統計和互動功能。
+                        </li>
+                    </ul>
+
+                    <h3>2. 我們如何使用您的資訊</h3>
+                    <p>我們將收集的資訊用於以下目的：</p>
+                    <ul>
+                        <li><strong>提供核心功能:</strong> 用於實現本機器人的服務，例如回應指令、播放音樂或管理伺服器身分組。
+                        </li>
+                        <li><strong>改善與優化本機器人:</strong> 用於分析使用模式、識別受歡迎的功能並提升效能。</li>
+                        <li><strong>提供技術支援:</strong> 用於排查問題並回應您的詢問。</li>
+                        <li><strong>開發新功能:</strong> 用於了解使用者需求並創造新的相關功能。</li>
+                        <li><strong>遵守法律規範:</strong> 用於執行我們的條款並維護安全的環境。</li>
+                    </ul>
+
+                    <h3>3. 資料分享</h3>
+                    <p>
+                        我們不會將您的個人資訊出售、出租或與第三方分享。僅在法律要求或收到主管機關的有效法律程序要求時，我們才可能揭露您的資訊。</p>
+
+                    <h3>4. 資料保留</h3>
+                    <p>我們保留您的資料最長不超過<strong>一 (1) 年</strong>。在以下情況下，資料將會被提早刪除：</p>
+                    <ul>
+                        <li>本機器人被從您的伺服器中移除。</li>
+                        <li>我們收到來自使用者（針對其個人資料）或伺服器管理員（針對全伺服器資料）的有效刪除請求。</li>
+                    </ul>
+
+                    <h3>5. 您的權利</h3>
+                    <p>您有權存取及請求刪除我們所收集的您的個人資料。</p>
+
+                    <h3>6. 如何行使您的權利</h3>
+                    <p>若要請求存取或刪除您的資料，請加入我們的官方支援伺服器並<strong>開啟一個客服單 (Ticket)</strong>。我們的團隊將引導您完成流程。
+                    </p>
+                    <p><strong>支援伺服器：<a href="https://dc.xinshou.tw/"
+                                             target="_blank">https://dc.xinshou.tw/</a></strong></p>
+
+                    <h3>7. 資料安全</h3>
+                    <p>我們採取合理的安全措施來保護您的資訊，防止未經授權的存取、竄改或銷毀。然而，沒有任何網路傳輸或電子儲存方法是
+                        100% 安全的，我們無法保證其絕對安全。</p>
+
+                    <h3>8. 本政策的變更</h3>
+                    <p>我們可能會不時更新本隱私權政策。若有任何重大變更，我們將在我們的支援伺服器中發布公告通知您。</p>
+
+                    <h3>9. 聯絡我們</h3>
+                    <p>若您對本隱私權政策有任何疑問，請透過電子郵件 <strong>me@xinshou.tw</strong> 聯繫我們，或在我們的支援伺服器中開啟客服單。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; 2025 原之序 | ORDERLY SERVER. All rights reserved.</p>
+            <p>
+                <span class="en-content">Contact: <a href="mailto:me@xinshou.tw">me@xinshou.tw</a> | Support: <a
+                        href="https://dc.xinshou.tw/" target="_blank">https://dc.xinshou.tw/</a></span>
+                <span class="zh-content">聯絡：<a href="mailto:me@xinshou.tw">me@xinshou.tw</a> | 支援：<a
+                        href="https://dc.xinshou.tw/" target="_blank">https://dc.xinshou.tw/</a></span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Language functionality
+    let currentLanguage = 'en';
+
+    function setLanguage(lang) {
+        currentLanguage = lang;
+        document.body.className = `lang-${lang}`;
+        document.getElementById('current-lang').textContent = lang.toUpperCase();
+
+        // Update active language option
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.classList.remove('active');
+        });
+        document.querySelector(`[onclick="setLanguage('${lang}')"]`).classList.add('active');
+
+        // Close dropdown
+        document.getElementById('languageDropdown').classList.remove('show');
+
+        // Update URL
+        updateURL();
+    }
+
+    function toggleLanguageDropdown() {
+        const dropdown = document.getElementById('languageDropdown');
+        dropdown.classList.toggle('show');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+        const dropdown = document.getElementById('languageDropdown');
+        const button = document.querySelector('.language-button');
+
+        if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
+
+    // Navigation functionality
+    function showPage(pageId) {
+        // Hide all pages
+        document.getElementById('home-page').classList.add('hidden');
+        document.getElementById('tos-page').classList.add('hidden');
+        document.getElementById('privacy-page').classList.add('hidden');
+
+        // Remove active class from all nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // Show selected page
+        document.getElementById(pageId).classList.remove('hidden');
+
+        // Update URL
+        updateURL(pageId);
+    }
+
+    function updateURL(pageId = null) {
+        if (!pageId) {
+            const activePage = document.querySelector('div[id$="-page"]:not(.hidden)').id;
+            pageId = activePage;
+        }
+
+        let path = '/';
+        if (pageId === 'tos-page') path = '/terms';
+        else if (pageId === 'privacy-page') path = '/privacy';
+
+        // Add language parameter if not English
+        if (currentLanguage !== 'en') {
+            path += (path === '/' ? '?' : '&') + `lang=${currentLanguage}`;
+        }
+
+        window.history.pushState({}, '', path);
+    }
+
+    function showHome() {
+        showPage('home-page');
+        document.getElementById('home-link').classList.add('active');
+    }
+
+    function showTerms() {
+        showPage('tos-page');
+        document.getElementById('tos-link').classList.add('active');
+    }
+
+    function showPrivacy() {
+        showPage('privacy-page');
+        document.getElementById('privacy-link').classList.add('active');
+    }
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function (e) {
+        initializePage();
+    });
+
+    // Initialize page based on URL
+    function initializePage() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const lang = urlParams.get('lang') || 'en';
+        const path = window.location.pathname;
+
+        // Set language
+        setLanguage(lang);
+
+        // Set page
+        if (path === '/terms') {
+            showTerms();
+        } else if (path === '/privacy') {
+            showPrivacy();
+        } else {
+            showHome();
+        }
+    }
+
+    // Header scroll effect
+    window.addEventListener('scroll', function () {
+        const header = document.getElementById('header');
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function () {
+        initializePage();
+    });
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+</body>
+</html>
